@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+jinja2
+python-multipart
+pydantic
+python-dotenv
+groq
+replicate
+SpeechRecognition
+pydub
+aiohttp
+aiofiles
+Pillow

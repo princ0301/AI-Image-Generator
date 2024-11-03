@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/styles.css') }}">
+</head>
+<body>
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-8 text-center">AI Image Generator</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="card bg-base-200 shadow-xl">
+                <div class="card-body">
+                    <h2 class="card-title mb-4">Speak your prompt</h2>
+                    <button id="startRecording" class="btn btn-primary mb-4">Start Recording</button>
+                    <button id="stopRecording" class="btn btn-secondary mb-4" disabled>Stop Recording</button>
+                    <div id="recordingStatus" class="text-lg mb-4"></div>
+                    <div id="transcription" class="text-lg mb-4"></div>
+                    <button id="generatePrompt" class="btn btn-accent mb-4" disabled>Generate Image Prompt</button>
+                    <div id="generatedPrompt" class="text-lg mb-4"></div>
+                    <button id="generateImage" class="btn btn-success" disabled>Generate Image</button>
+                </div>
+            </div>
+            <div class="card bg-base-200 shadow-xl">
+                <div class="card-body">
+                    <h2 class="card-title mb-4">Generated Image</h2>
+                    <div id="imageContainer" class="mb-4">
+                        <img id="generatedImage" src="" alt="Generated Image" class="w-full h-auto">
+                    </div>
+                    <a id="downloadLink" href="#" download="generated_image.png" class="btn btn-info" style="display: none;">Download Image</a>
+                </div>
+            </div>
+        </div>
+        <!-- Add this new section after the existing cards -->
+        <div class="card bg-base-200 shadow-xl mt-8">
+            <div class="card-body">
+                <h2 class="card-title mb-4">Generate Story from Image</h2>
+                <button id="generateStory" class="btn btn-primary mb-4">Generate Story</button>
+                <div id="storyContainer" class="mb-4">
+                    <p id="generatedStory" class="text-lg"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', path='/js/script.js') }}"></script>
+</body>
+</html>
